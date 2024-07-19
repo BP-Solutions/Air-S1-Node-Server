@@ -44,6 +44,8 @@ client.on('message', (topic, message) => {
             .intField('temperature', data.readings.temperature)
             .intField('humidity', data.readings.humidity)
 
+            .stringField('uptime', data.deviceTelemetry.uptime); // Add uptime as a string field
+
         writeClient.writePoint(point)
         writeClient.flush();
 
