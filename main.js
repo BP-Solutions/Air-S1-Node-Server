@@ -3,15 +3,15 @@ import {InfluxDB, Point} from '@influxdata/influxdb-client'
 
 import { app, PORT } from './api/api.js';
 
-const url = 'http://10.0.0.101:8086'
-const token = "NV_gZSAnEr84kmflYNg1c1YpiquuLabEPGVHxUmDQ7x4GxmVKmBEtn0L8kG-NU1S05lxer59ohEpqfHZgiJBmw=="
+const url = 'http://10.1.10.237:8086'
+const token = "yeqw7GJRi_XjpakShD8VNSANhV37ITARjHfaUKDr1qRFBs0-FUFecWLpAy0_jjvI2jxNel6wp2YObTNLkTyBlw=="
 const client2 = new InfluxDB({url, token})
-let org = `birdpump`
-let bucket = `test`
+let org = `bp`
+let bucket = `main`
 let writeClient = client2.getWriteApi(org, bucket, 'ns')
 
 
-const brokerUrl = 'mqtt://10.0.0.101';
+const brokerUrl = 'mqtt://10.1.10.237';
 const topic = 'sensors-v1/nodes';
 const client = mqtt.connect(brokerUrl);
 
